@@ -150,7 +150,7 @@
     <ul id="nav-menu" class:open={isOpen}>
         <li>
             <a href="/" class={activeLink === "dashboard" ? "active" : ""} on:click={() => setActive("dashboard")}>
-                Home
+                Dashboard
             </a>
         </li>
         <li>
