@@ -149,27 +149,27 @@
     <!-- Navigation Links -->
     <ul id="nav-menu" class:open={isOpen}>
         <li>
-            <a href="#dashboard" class={activeLink === "dashboard" ? "active" : ""} on:click={() => setActive("dashboard")}>
-                Dashboard
+            <a href="/" class={activeLink === "dashboard" ? "active" : ""} on:click={() => setActive("dashboard")}>
+                Home
             </a>
         </li>
         <li>
-            <a href="#aktuell" class={activeLink === "aktuell" ? "active" : ""} on:click={() => setActive("aktuell")}>
+            <a href="/aktuell" class={activeLink === "aktuell" ? "active" : ""} on:click={() => setActive("aktuell")}>
                 Aktuell
             </a>
         </li>
         <li>
-            <a href="#daten" class={activeLink === "daten" ? "active" : ""} on:click={() => setActive("daten")}>
+            <a href="/daten" class={activeLink === "daten" ? "active" : ""} on:click={() => setActive("daten")}>
                 Daten
             </a>
         </li>
         <li>
-            <a href="#feedback" class={activeLink === "feedback" ? "active" : ""} on:click={() => setActive("feedback")}>
+            <a href="/feedback" class={activeLink === "feedback" ? "active" : ""} on:click={() => setActive("feedback")}>
                 Feedback
             </a>
         </li>
         <li>
-            <a href="#about" class={activeLink === "about" ? "active" : ""} on:click={() => setActive("about")}>
+            <a href="/about" class={activeLink === "about" ? "active" : ""} on:click={() => setActive("about")}>
                 About
             </a>
         </li>
