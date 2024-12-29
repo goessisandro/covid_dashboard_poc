@@ -154,13 +154,13 @@
             </a>
         </li>
         <li>
-            <a href="/aktuell" class={activeLink === "aktuell" ? "active" : ""} on:click={() => setActive("aktuell")}>
-                Aktuell
+            <a href="/info" class={activeLink === "info" ? "active" : ""} on:click={() => setActive("info")}>
+                Info
             </a>
         </li>
         <li>
-            <a href="/daten" class={activeLink === "daten" ? "active" : ""} on:click={() => setActive("daten")}>
-                Daten
+            <a href="/data" class={activeLink === "data" ? "active" : ""} on:click={() => setActive("data")}>
+                Data
             </a>
         </li>
         <li>
