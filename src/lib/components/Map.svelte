@@ -1,11 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
+  import { goto } from '$app/navigation';
 
-  // Supplied by parent (App.svelte)
-  export let covidRows = [];
+  export let covidRows = []; // passed in from parent, if needed
 
-  // Dimensions for the map's coordinate system
   const MAP_WIDTH = 1000;
   const MAP_HEIGHT = 800;
 
@@ -50,34 +49,32 @@
     '#99000d'
   ];
 
-  // Use a flag so we only create the map once
   let mapCreated = false;
 
-  // We can trigger the map creation whenever the component mounts
-  // or whenever covidRows changes
+  // When mounted or updated, create map if not done
   onMount(() => {
     maybeCreateMap();
   });
 
-  // Reactive statement: if covidRows has data and map isn't created, create it.
+  // Also watch if covidRows changes, create map if not done
   $: if (!mapCreated && covidRows.length > 0) {
     maybeCreateMap();
   }
 
   async function maybeCreateMap() {
-    if (mapCreated) return; // already done
-    if (covidRows.length === 0) return; // no data yet
+    if (mapCreated) return;
+    if (covidRows.length === 0) return;
 
-    // Mark that we are about to create the map
     mapCreated = true;
 
-    // Now load your GeoJSON, merge data, and draw
+    // 1. Load GeoJSON
     const geoData = await d3.json('/geo/switzerland_cantons.geojson');
 
-    // Merge the covidRows data into the geoData
+    // 2. Merge data
     geoData.features.forEach(feature => {
-      const fullName = feature.properties.kantName;  // e.g. 'Zürich'
-      const abbr = nameToAbbr[fullName];             // e.g. 'ZH'
+      const fullName = feature.properties.kantName;
+      const abbr = nameToAbbr[fullName];
+      // find matching row in covidRows
       if (abbr) {
         const row = covidRows.find(r => r.canton === abbr);
         if (row) {
@@ -88,7 +85,7 @@
           feature.properties.deaths_total         = row.deaths_total;
           feature.properties.test_positivity_rate = row.test_positivity_rate;
         } else {
-          // If no matching row, set to 0 or null
+          // fallback
           feature.properties.seven_day_incidence  = 0;
           feature.properties.cases_today          = 0;
           feature.properties.cases_total          = 0;
@@ -99,27 +96,27 @@
       }
     });
 
-    // Determine color domain based on "seven_day_incidence"
+    // 3. color scale from incidence
     const incidenceValues = geoData.features.map(f => f.properties.seven_day_incidence || 0);
     const [minVal, maxVal] = d3.extent(incidenceValues);
 
-    // Continuous color scale
     const colorScale = d3.scaleSequential()
       .domain([minVal, maxVal])
       .interpolator(d3.interpolateRgbBasis(colorStops));
 
-    // Projection & path generator
-    const projection = d3.geoMercator().fitSize([MAP_WIDTH, MAP_HEIGHT], geoData);
+    // 4. Projection
+    const projection = d3.geoMercator()
+      .fitSize([MAP_WIDTH, MAP_HEIGHT], geoData);
     const pathGenerator = d3.geoPath().projection(projection);
 
-    // Main map <svg> with responsive sizing
+    // 5. Main SVG
     const svg = d3.select('#map')
       .attr('viewBox', `0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`)
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .style('width', '100%')
       .style('height', 'auto');
 
-    // Create a tooltip div
+    // 6. Tooltip
     const tooltip = d3.select('body')
       .append('div')
       .attr('class', 'tooltip')
@@ -131,7 +128,7 @@
       .style('display', 'none')
       .style('pointer-events', 'none');
 
-    // Draw paths
+    // 7. Draw paths
     svg.selectAll('path')
       .data(geoData.features)
       .enter()
@@ -140,6 +137,7 @@
       .attr('stroke', '#fff')
       .attr('stroke-width', 0.5)
       .attr('fill', d => colorScale(d.properties.seven_day_incidence))
+      .attr('class', d => d.properties.kantName === 'Schwyz' ? 'clickable' : '')
       .on('mouseover', function(event, d) {
         d3.select(this)
           .attr('stroke', '#2F4356')
@@ -168,21 +166,26 @@
           .attr('stroke-width', 0.5);
 
         tooltip.style('display', 'none');
+      })
+      .on('click', function(event, d) {
+        if (d.properties.kantName === 'Schwyz') {
+          tooltip.style('display', 'none');
+          goto('/schwyz');
+        }
       });
 
-    // Build a simple gradient legend
+    // 8. legend
     createLegend(minVal, maxVal, colorScale);
   }
 
-  function createLegend(minValue, maxValue, colorScale) {
+  function createLegend(minVal, maxVal, colorScale) {
     const legendSvg = d3.select('#legend')
       .attr('viewBox', '0 0 300 50')
       .attr('preserveAspectRatio', 'xMidYMid meet')
       .style('width', '100%')
       .style('height', 'auto');
 
-    const g = legendSvg.append('g')
-      .attr('transform', 'translate(10,15)');
+    const g = legendSvg.append('g').attr('transform', 'translate(10,15)');
 
     const gradient = g.append('defs')
       .append('linearGradient')
@@ -192,11 +195,11 @@
 
     gradient.append('stop')
       .attr('offset', '0%')
-      .attr('stop-color', colorScale(minValue));
+      .attr('stop-color', colorScale(minVal));
 
     gradient.append('stop')
       .attr('offset', '100%')
-      .attr('stop-color', colorScale(maxValue));
+      .attr('stop-color', colorScale(maxVal));
 
     g.append('rect')
       .attr('x', 0)
@@ -206,10 +209,12 @@
       .style('fill', 'url(#legendGradient)');
 
     const xScale = d3.scaleLinear()
-      .domain([minValue, maxValue])
+      .domain([minVal, maxVal])
       .range([0, 250]);
 
-    const xAxis = d3.axisBottom(xScale).ticks(5).tickSize(0);
+    const xAxis = d3.axisBottom(xScale)
+      .ticks(5)
+      .tickSize(0);
 
     g.append('g')
       .attr('transform', 'translate(0,15)')
@@ -220,7 +225,6 @@
 
 <div class="map-card">
   <h2 class="map-title">Covid-19 Statistics by Canton</h2>
-  <!-- We'll inject our map into this <svg> via D3 -->
   <svg id="map"></svg>
   <div class="legend-container">
     <h3 class="legend-title">7-Day Incidence</h3>
@@ -285,6 +289,14 @@
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   }
 
+  /*
+    Make the path for Schwyz clickable (hand pointer)
+    We do this by adding a "clickable" class if kantName === "Schwyz"
+  */
+  :global(.clickable) {
+    cursor: pointer;
+  }
+
   @media (min-width: 992px) {
     #map {
       max-width: 60%;
@@ -298,6 +310,7 @@
     }
   }
 </style>
+
 
   
   
