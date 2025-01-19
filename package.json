@@ -37,9 +37,11 @@
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
+		"@observablehq/plot": "^0.6.16",
 		"@supabase/supabase-js": "^2.47.10",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
-		"d3": "^7.9.0"
+		"d3": "^7.9.0",
+		"papaparse": "^5.5.1"
 	}
 }
