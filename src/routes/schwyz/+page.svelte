@@ -1,9 +1,23 @@
 <!-- src/routes/schwyz/+page.svelte -->
 <script lang="ts">
-    // Add any necessary imports or script logic here
+    import CloudSupabaseSchwyz from '$lib/api/CloudSupabaseSchwyz.svelte';
+    import MapSchwyz from '$lib/components/MapSchwyz.svelte';
+    
+    let covidRows = [];
+    let errorMessage = '';
 </script>
 
 <main>
-    <h1>Schwyz</h1>
-    <p>This is the Schwyz page.</p>
+    <CloudSupabaseSchwyz 
+      bind:covidRows
+      bind:errorMessage
+    />
+  
+    {#if errorMessage}
+      <p style="color: red;">{errorMessage}</p>
+    {/if}
+  
+    <!-- Pass covidRows into the MapSchwyz component -->
+    <MapSchwyz {covidRows} />
 </main>
+  
