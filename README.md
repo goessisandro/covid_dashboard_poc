@@ -50,39 +50,37 @@ This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js.
 
 Based on the research conducted in this thesis and the practical insights gained from the proof of concept (PoC), the following technology stack is recommended for building modern, interactive public health dashboards that are accessible via any web browser and device with an internet connection:
 
-**1. PostgreSQL:** Used as the primary relational database for storing structured public health data, including metrics, time series, and geospatial information.
+**1. [PostgreSQL](https://www.postgresql.org/):** Used as the primary relational database for storing structured public health data, including metrics, time series, and geospatial information.
 
 **2. Cloud Infrastructure and Real-Time Data Storage**
-- Supabase: Employed in this project as a cloud-based backend-as-a-service (BaaS) platform. It offers real-time database syncing, RESTful API generation, user authentication, and file storage.
+- [Supabase](https://supabase.com/): Employed in this project as a cloud-based backend-as-a-service (BaaS) platform. It offers real-time database syncing, RESTful API generation, user authentication, and file storage.
 
 Alternative cloud database solutions:
-- Databricks – for large-scale analytics and machine learning.
-- Snowflake – for high-performance cloud data warehousing.
-- Google Firebase – for rapid front-end development, offering built-in authentication, hosting, and flexible NoSQL storage database services (Firestore).
+- [Databricks](https://www.databricks.com/) – for large-scale analytics and machine learning.
+- [Snowflake](https://www.snowflake.com/) – for high-performance cloud data warehousing.
+- [Firebase](https://firebase.google.com/) – for rapid front-end development, offering built-in authentication, hosting, and flexible NoSQL storage database services (Firestore).
 Choose a solution based on your project’s resources, scalability, performance, and integration needs.
 
-**3. JavaScript / TypeScript:** Used as the core programming language for building front-end interactivity. TypeScript provides additional type safety and improves code maintainability.
+**3. [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) / [TypeScript](https://www.typescriptlang.org/):** Used as the core programming language for building front-end interactivity. TypeScript provides additional type safety and improves code maintainability.
 
-**4. HTML5:** Provides the structural foundation of the web application, including content layout and semantic organization of interface components.
+**4. [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5):** Provides the structural foundation of the web application, including content layout and semantic organization of interface components.
 
-**5. CSS3 / Tailwind CSS:** Used to style the application and implement responsive design. Tailwind CSS offers utility-first classes to speed up UI development and ensure consistent design across devices.
+**5. [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) / [Tailwind CSS](https://tailwindcss.com/):** Used to style the application and implement responsive design. Tailwind CSS offers utility-first classes to speed up UI development and ensure consistent design across devices.
 
-**6. Svelte & SvelteKit:** Serve as the main front-end framework and application router. Svelte enables reactive and efficient UI components with minimal overhead, while SvelteKit simplifies routing, server-side rendering (SSR), and integration with backend APIs.
+**6. [Svelte](https://svelte.dev/) & [SvelteKit](https://kit.svelte.dev/):** Serve as the main front-end framework and application router. Svelte enables reactive and efficient UI components with minimal overhead, while SvelteKit simplifies routing, server-side rendering (SSR), and integration with backend APIs.
 
-**7. D3.js, Chart.js, and Observable Plot:** Used for data visualization.
-- D3.js is ideal for building fully customizable, interactive visualizations, including choropleth maps.
+**7. Data Visualization Libraries** Used for data visualization.
+- [D3.js](https://d3js.org/): is ideal for building fully customizable, interactive visualizations, including choropleth maps.
 
-- Chart.js is useful for quickly rendering standard chart types with built-in interactivity.
+- [Chart.js](https://www.chartjs.org/): is useful for quickly rendering standard chart types with built-in interactivity.
 
-- Observable Plot simplifies statistical visualizations with a higher-level abstraction built on D3.js.
+- [Observable Plot](https://observablehq.com/plot): Simplifies statistical visualizations with a higher-level abstraction built on D3.js.
 
-**8. GeoJSON Data Format:** Used to represent geospatial features such as canton and municipality boundaries for rendering interactive maps.
-
-
-**9. Svelte UI Libraries (optional):** Libraries such as svelte-headlessui, svelte-materialify, or shadcn-svelte can be used to accelerate development of ready-made UI components, such as modals, tabs, tooltips, and dropdowns, while maintaining accessibility and consistency.
+**8. [GeoJSON](https://geojson.org/):**  Used to represent geospatial features such as canton and municipality boundaries for rendering interactive maps.
 
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+**9. Svelte UI Libraries (optional):** Libraries such as [svelte-headlessui](https://github.com/rgossiaux/svelte-headlessui), [svelte-materialify](https://github.com/TheComputerM/svelte-materialify) , or [shadcn-svelte](https://github.com/huntabyte/shadcn-svelte) can be used to accelerate development of ready-made UI components, such as modals, tabs, tooltips, and dropdowns, while maintaining accessibility and consistency.
+
 
 ## Installation
 
