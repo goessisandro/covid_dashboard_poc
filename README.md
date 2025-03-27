@@ -1,6 +1,40 @@
 # Technology Proof-of-Concept: COVID-19 Dashboard
 
+## 📖 Description
+
+This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js. The dashboard was developed to test and evaluate a modern web technology stack for building responsive, interactive dashboards. It was created as part of the master's thesis *"Data Visualization in the COVID-19 Pandemic – Developing a Framework for Public Health Dashboard Design: From Research to Prototype"*, authored by **Sandro Gössi** at the **University of St. Gallen**.
+
+## 📚 Table of Contents
+
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Building](#building)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+
+
+
+
+# Technology Proof-of-Concept: COVID-19 Dashboard
+
+## Description
+
 This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js. The dashboard was developed to test and evaluate the chosen technology stack for building COVID-19 dashboards, as part of the master's thesis "*Data Visualization in the COVID-19 Pandemic – Developing a Framework for Public Health Dashboard Design: From Research to Prototype"*, authored by Sandro Gössi at the University of St. Gallen.
+
+## Table of Contents
+- [Features](#features)
+- [Recommended Technologies](#RecommendedTechnologies)
+- [Installation](#installation)
+
+- [Contributing](#contributing)
+- [License](#license)
+
 
 ## Features
 
@@ -84,4 +118,18 @@ To create a production version of your app:
 npm run build
 ```
 
+## Contributing
 
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## Aknowledgements
+Prof. Dr. Johannes Schöning und Dr. Gian-Luca Savino Prof. Dr. Tobias Kowatsch for supervised this master thesis.
+
+## License
+
+This project is licensed under the MIT License. Open to use as long you give credit.
+
+
+## Contact
+
+For questions or support, please contact [hsgmasterthesis@gmail.com](hsgmasterthesis@gmail.com).
