@@ -7,7 +7,7 @@ This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js.
 ## 📚 Table of Contents
 
 - [Features](#features)
-- [Technology Stack](#technology-stack)
+- [Recommended Technologies](#RecommendedTechnologies)
 - [Installation](#installation)
 - [Building](#building)
 - [Contributing](#contributing)
@@ -17,23 +17,31 @@ This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js.
 
 ---
 
+## ✅ Features
 
+- **Interactive Map**  
+  Displays a COVID-19 choropleth map of Switzerland, showing data by **canton** (national level) and **municipality** (regional level). Built using GeoJSON and D3.js.
 
+- **Cloud-Based Backend**  
+  Connects to a PostgreSQL database hosted on **Supabase** for real-time data storage, syncing, and RESTful API access.
 
+- **Official Public Health Data Integration**  
+  Retrieves live COVID-19 statistics from the **Swiss Federal Office of Public Health (FOPH)** via the [opendata.swiss](https://opendata.swiss) API.
 
-# Technology Proof-of-Concept: COVID-19 Dashboard
+- **Interactive Tooltips**  
+  Displays detailed statistics on hover using D3.js and reactive Svelte components.
 
-## Description
+- **Additional Charts**  
+  Visualizes variant data using **Chart.js** and **Observable Plot** for comparative analysis and trends.
 
-This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js. The dashboard was developed to test and evaluate the chosen technology stack for building COVID-19 dashboards, as part of the master's thesis "*Data Visualization in the COVID-19 Pandemic – Developing a Framework for Public Health Dashboard Design: From Research to Prototype"*, authored by Sandro Gössi at the University of St. Gallen.
+- **Responsive Design**  
+  Fully responsive layout built with **Tailwind CSS**, ensuring optimal usability on all devices.
 
-## Table of Contents
-- [Features](#features)
-- [Recommended Technologies](#RecommendedTechnologies)
-- [Installation](#installation)
+- **Supporting Pages**  
+  Includes an **About** page and a **Feedback** form that connects directly to Supabase for submitting responses.
 
-- [Contributing](#contributing)
-- [License](#license)
+---
+
 
 
 ## Features
