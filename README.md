@@ -60,8 +60,8 @@ Everything you need to build a Svelte project, powered by [`sv`](https://github.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/covid-dashboard.git
-   cd covid-dashboard
+   git clone [https://github.com/yourusername/covid-dashboard.git](https://github.com/goessisandro/covid_dashboard_poc.git)
+   cd covid_dashboard_poc
    ```
 
 2. Install dependencies:
