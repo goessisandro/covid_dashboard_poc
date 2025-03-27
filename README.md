@@ -60,7 +60,7 @@ Everything you need to build a Svelte project, powered by [`sv`](https://github.
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/yourusername/covid-dashboard.git](https://github.com/goessisandro/covid_dashboard_poc.git)
+   git clone https://github.com/goessisandro/covid_dashboard_poc.git
    cd covid_dashboard_poc
    ```
 
@@ -74,7 +74,7 @@ Everything you need to build a Svelte project, powered by [`sv`](https://github.
    npm run dev
    ```
 
-4. Open your browser and navigate to `http://localhost:3000`.
+4. Open your browser and navigate to [`http://localhost:3000`](http://localhost:300).
 
 
 
