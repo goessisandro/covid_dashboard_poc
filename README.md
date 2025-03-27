@@ -26,6 +26,7 @@ Based on the research conducted in this thesis and the practical insights gained
 
 **Cloud Infrastructure and Real-Time Data Storage**
 - Supabase: Employed in this project as a cloud-based backend-as-a-service (BaaS) platform. It offers real-time database syncing, RESTful API generation, user authentication, and file storage.
+
 Alternative cloud database solutions:
 - Databricks – for large-scale analytics and machine learning.
 - Snowflake – for high-performance cloud data warehousing.
@@ -54,6 +55,35 @@ Choose a solution based on your project’s resources, scalability, performance,
 
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/covid-dashboard.git
+   cd covid-dashboard
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+
+
+
+
+
+
+
+
 
 ## Creating a project
 
