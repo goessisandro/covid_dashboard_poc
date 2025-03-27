@@ -7,7 +7,7 @@ This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js.
 ## 📚 Table of Contents
 
 - [Features](#features)
-- [Recommended Technologies](#RecommendedTechnologies)
+- [Recommended Technologies](#recommended-technologies)
 - [Installation](#installation)
 - [Building](#building)
 - [Contributing](#contributing)
