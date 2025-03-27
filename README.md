@@ -20,45 +20,30 @@ This is a COVID-19 dashboard application built with Svelte, Supabase, and D3.js.
 ## ✅ Features
 
 - **Interactive Map**  
-  Displays a COVID-19 choropleth map of Switzerland, showing data by **canton** (national level) and **municipality** (regional level). Built using GeoJSON and D3.js.
+  Displays a COVID-19 choropleth map of Switzerland, showing data by **canton** (national level) and **municipality** (regional level). Used to test the integration of GeoJSON files and geospatial data visualization using D3.js.
 
 - **Cloud-Based Backend**  
-  Connects to a PostgreSQL database hosted on **Supabase** for real-time data storage, syncing, and RESTful API access.
+  Connects to a PostgreSQL database hosted on **Supabase** via API requests to fetch COVID-19 data. Used to test real-time data storage, syncing, and RESTful API access.
 
 - **Official Public Health Data Integration**  
-  Retrieves live COVID-19 statistics from the **Swiss Federal Office of Public Health (FOPH)** via the [opendata.swiss](https://opendata.swiss) API.
+  Retrieves live COVID-19 statistics from the **Swiss Federal Office of Public Health (FOPH)** via the [opendata.swiss](https://opendata.swiss) API. Used to test API functionality and the use of official government data sources.
 
 - **Interactive Tooltips**  
-  Displays detailed statistics on hover using D3.js and reactive Svelte components.
+  Displays detailed statistics on hover over the map using D3.js and reactive Svelte components. Used to test the interactivity capabilities of Svelte and data visualization libraries.
 
 - **Additional Charts**  
-  Visualizes variant data using **Chart.js** and **Observable Plot** for comparative analysis and trends.
+  Visualizes variant data using **Chart.js** and **Observable Plot** for comparative analysis and trends. Used to test and evaluate different JavaScript data visualization libraries.
 
 - **Responsive Design**  
-  Fully responsive layout built with **Tailwind CSS**, ensuring optimal usability on all devices.
+  Responsive layout built with **CSS/Tailwind CSS** that adapts to various screen sizes. Used to test CSS and Tailwind CSS utility classes for building mobile-friendly layouts.
 
 - **Supporting Pages**  
-  Includes an **About** page and a **Feedback** form that connects directly to Supabase for submitting responses.
+  Includes an **About** page and a **Feedback** form that connects directly to Supabase for submitting responses. Used to to explore Svelte funcionalities such as component structure, page routing, and form handling and get more familar with HTML/CSS/JavaScript basics.
 
 ---
 
 
 
-## Features
-
-- **Interactive Map:** Displays a COVID-19 choropleth map of Switzerland, showing data by canton at the first level and by municipality at the second. This feature was used to test the integration of GeoJSON files and geospatial data visualization using D3.js.
-
-- **Cloud-Based Back End:** Fetches data from a PostgreSQL database hosted on Supabase. This setup was used to test real-time data storage, RESTful API access, and backend-to-frontend integration.
-
-- **Official Public Health Data (FOPH API):** Retrieves official COVID-19 data from the Swiss Federal Office of Public Health via the opendata.swiss API. This was implemented to test API functionality and the use of official government data sources.
-
-- **Interactive Tooltips:** Displays detailed statistics when hovering over cantons or municipalities. This feature tests the interactivity between Svelte and D3.js components.
-
-- **Additional Charts:** Visualizes COVID-19 variant data using Chart.js and Observable Plot, including line and bar charts. This was used to evaluate different JavaScript charting libraries.
-
-- **Responsive Design:** The dashboard is fully responsive and adapts to various screen sizes. This was used to test CSS and Tailwind CSS utility classes for building mobile-friendly layouts.
-
-- **Supporting Pages:** Includes an About and a Feedback page. These were created to explore Svelte component structure, HTML/CSS integration, and form handling. The feedback form is connected to Supabase, allowing users to submit responses directly to the database.
 
 ## Recommended Technologies
 
@@ -128,10 +113,19 @@ npm run build
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+Contributions are welcome!
+Feel free to open an issue or submit a pull request with improvements, bug fixes, or suggestions.
 
 ## Aknowledgements
-Prof. Dr. Johannes Schöning und Dr. Gian-Luca Savino Prof. Dr. Tobias Kowatsch for supervised this master thesis.
+Supervised by:
+
+- Prof. Dr. Johannes Schöning
+
+- Dr. Gian-Luca Savino
+
+- Prof. Dr. Tobias Kowatsch
+
+Thank you for the valuable feedback and academic support.
 
 ## License
 
@@ -140,4 +134,4 @@ This project is licensed under the MIT License. Open to use as long you give cre
 
 ## Contact
 
-For questions or support, please contact [hsgmasterthesis@gmail.com](hsgmasterthesis@gmail.com).
+For questions, suggestions, or feedback, feel free to reach out: [hsgmasterthesis@gmail.com](hsgmasterthesis@gmail.com).
