@@ -83,6 +83,9 @@ Choose a solution based on your project’s resources, scalability, performance,
 
 
 ## Installation
+Ensure that NodeJS and GitHub is installed abd that your System is allowed to execute Scripts.
+- https://nodejs.org/en/download
+- https://git-scm.com/downloads
 
 1. Clone the repository:
    ```bash
