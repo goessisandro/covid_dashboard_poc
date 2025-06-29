@@ -83,7 +83,7 @@ Choose a solution based on your project’s resources, scalability, performance,
 
 
 ## Installation
-Ensure that NodeJS and Git is installed abd that your System is allowed to execute Scripts. VS Studio Code is recommended to execute the commands in the terminal.
+Ensure that NodeJS and Git is installed and that your System is allowed to execute Scripts. VS Studio Code is recommended to execute the commands in the terminal.
 - https://nodejs.org/en/download
 - https://git-scm.com/downloads
 - https://code.visualstudio.com/
