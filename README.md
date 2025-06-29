@@ -83,9 +83,10 @@ Choose a solution based on your project’s resources, scalability, performance,
 
 
 ## Installation
-Ensure that NodeJS and Git is installed abd that your System is allowed to execute Scripts.
+Ensure that NodeJS and Git is installed abd that your System is allowed to execute Scripts. VS Studio Code is recommended to execute the commands in the terminal.
 - https://nodejs.org/en/download
 - https://git-scm.com/downloads
+- https://code.visualstudio.com/
 
 1. Clone the repository:
    ```bash
@@ -103,7 +104,7 @@ Ensure that NodeJS and Git is installed abd that your System is allowed to execu
    npm run dev
    ```
 
-4. Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173).
+4. Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173). Note: Sometimes the number "5173" can vary.
 
 ## Building
 
