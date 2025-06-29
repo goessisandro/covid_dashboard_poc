@@ -3,7 +3,7 @@
   import * as d3 from 'd3';
   import { goto } from '$app/navigation';
 
-  // We'll receive `covidRows` from outside, each row keyed by `canton` (like 'ZH', 'BE', etc.).
+  // Receives `covidRows` from outside, each row keyed by `canton` (like 'ZH', 'BE', etc.).
   export let covidRows = [];
 
   // Dimensions for the SVG
@@ -40,7 +40,7 @@
     'Jura': 'JU'
   };
 
-  // The metrics we want to allow switching between
+  // The metrics allow switching between
   const METRICS = [
     { value: 'seven_day_incidence', label: '7-Day Incidence' },
     { value: 'cases_today',         label: 'Cases Today' },
@@ -67,17 +67,17 @@
     '#99000d'
   ];
 
-  // We'll keep a colorScale that we can re-domain
+  // colorScale 
   const colorScale = d3.scaleSequential()
     .interpolator(d3.interpolateRgbBasis(colorStops));
 
-  // We'll keep an in-memory reference to the tooltip
+  // In-memory reference to the tooltip
   let tooltipDiv = null;
 
-  // Whether we've built the map yet
+  // If the map was built yet
   let mapCreated = false;
 
-  // Called onMount and again if `covidRows` changes
+  // Called onMount and again checkis if `covidRows` changes
   onMount(() => {
     maybeCreateMap();
   });
@@ -88,7 +88,7 @@
   }
 
   /**
-   * Handle metric dropdown changes:
+   * Handles metric dropdown changes:
    */
   function handleMetricChange(event) {
     selectedMetric = event.target.value;
@@ -96,7 +96,7 @@
   }
 
   /**
-   * Possibly create the map if not created.
+   * Creates the map if not created.
    */
   async function maybeCreateMap() {
     if (mapCreated) return;
@@ -166,7 +166,8 @@
       .attr('d', pathGenerator)
       .attr('stroke', '#fff')
       .attr('stroke-width', 0.5)
-      // We'll fill them in `updateMap()` after we define color domain
+      .attr('class', d => d.properties.kantName === 'Schwyz' ? 'clickable' : '')
+      // `updateMap()` after the color domain was defined
       .on('mouseover', function(event, d) {
         d3.select(this)
           .attr('stroke', '#2F4356')
@@ -177,7 +178,7 @@
         const metricValue = d.properties[selectedMetric];
         const metricLabel = METRICS.find(m => m.value === selectedMetric)?.label || selectedMetric;
 
-        // build HTML for tooltip
+        // Build HTML for tooltip
         const html = `
           <strong>${kantName}</strong><br>
           <strong>${metricLabel}:</strong> ${metricValue}<br>
@@ -210,7 +211,7 @@
         }
       });
 
-    // 7. Now color them according to the initial selected metric
+    // 7. New color them according to the initial selected metric
     updateMap();
   }
 
@@ -249,7 +250,7 @@
       .style('width', '100%')
       .style('height', 'auto');
 
-    // clear old stuff
+    // clears the old visualization
     legendSvg.selectAll('*').remove();
 
     const g = legendSvg.append('g').attr('transform', 'translate(10,15)');
@@ -295,11 +296,11 @@
   <svg id="map"></svg>
 
   <div class="legend-container">
-    <!-- We'll dynamically show the selected metric in the legend-title, or we can keep it static -->
+    <!-- Dynamically shows the selected metric in the legend-title -->
     <h3 class="legend-title">Select Metric</h3>
     <svg id="legend"></svg>
 
-    <!-- The drop-down below the legend -->
+    <!-- Drop-down below the legend -->
     <div class="metric-selector">
       <label for="metricSelect">Pick a Metric:</label>
       <select id="metricSelect" on:change={handleMetricChange}>
@@ -382,7 +383,7 @@
 
   /*
     Make the path for Schwyz clickable (hand pointer)
-    We do this by adding a "clickable" class if kantName === "Schwyz"
+    Add a "clickable" class if kantName === "Schwyz"
   */
   :global(.clickable) {
     cursor: pointer;

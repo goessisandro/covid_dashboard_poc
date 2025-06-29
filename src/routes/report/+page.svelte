@@ -10,7 +10,7 @@
     let loading = true;
     let error: string | null = null;
   
-    // URL to your local server endpoint that returns the CSV:
+    // URL to local server endpoint that returns the CSV:
     const CSV_URL = "/opendataswissapi/variants";
   
     onMount(async () => {
@@ -31,16 +31,13 @@
     });
   </script>
   
-  <main>
-    <h1>Aktuell</h1>
-    <p>This is the Aktuell page.</p>
-  
+  <main> 
     {#if loading}
       <p>Loading CSV data…</p>
     {:else if error}
       <p style="color: red;">Error: {error}</p>
     {:else}
-      <!-- We pass the `variantData` array to our separate table component -->
+      <!-- Pass the `variantData` array to separate table component -->
       <VariantsLineChart {variantData} />
     {/if}
   </main>

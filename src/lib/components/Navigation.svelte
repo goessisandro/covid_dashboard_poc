@@ -154,8 +154,8 @@
             </a>
         </li>
         <li>
-            <a href="/info" class={activeLink === "info" ? "active" : ""} on:click={() => setActive("info")}>
-                Info
+            <a href="/report" class={activeLink === "report" ? "active" : ""} on:click={() => setActive("report")}>
+                Report
             </a>
         </li>
         <li>

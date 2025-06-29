@@ -12,8 +12,8 @@
   onMount(async () => {
     try {
       let { data, error } = await supabase
-        .from('covid19data') // your table name
-        .select('*'); // or list columns explicitly
+        .from('covid19data') // table name
+        .select('*'); // list columns explicitly
 
       if (error) {
         throw error;

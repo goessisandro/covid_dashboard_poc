@@ -1,10 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import * as Plot from '@observablehq/plot';
-    import * as d3 from 'd3'; // for date parsing, tick formatting, etc.
+    import * as d3 from 'd3'; // for date parsing, formatting, etc.
   
     /**
-     * We expect the parent to pass in "variantData", which is an
+     * Expects the parent to pass in "variantData", which is an
      * array of objects, each with these fields (at least):
      *
      * {
@@ -17,7 +17,7 @@
      */
     export let variantData: Array<Record<string, any>> = [];
   
-    // We'll store a reference to a <div> to mount the chart
+    // Stores a reference to a <div> to mount the chart
     let chartContainer: HTMLDivElement;
   
     onMount(() => {
@@ -28,14 +28,14 @@
   
       // 2) Convert "date" to a JavaScript Date object, and "entries" to number
       filteredData.forEach(d => {
-        // If dates are in YYYY-MM-DD format, this works well:
+        // Dates are in YYYY-MM-DD format:
         d.date = new Date(d.date);
         // Convert entries to a number
         d.entries = +d.entries;
       });
   
       // 3) Build the Plot chart
-      //    We'll group by (x = date, color/stroke = variant_type)
+      //    Group by (x = date, color/stroke = variant_type)
       //    and sum all "entries" for each date+variant_type.
       const chart = Plot.plot({
         width: 800,
@@ -48,7 +48,7 @@
         // X-axis config
         x: {
           label: 'Date',
-          tickRotate: -45,                   // tilt labels if you have many dates
+          tickRotate: -45,                   // tilt labels if many dates
           tickFormat: d3.utcFormat('%Y-%m-%d') 
         },
   
@@ -69,7 +69,7 @@
         },
   
         marks: [
-          // We use Plot.lineY, but group by date to sum the 'entries' per variant_type
+          // Plot.lineY, group by date to sum the 'entries' per variant_type
           Plot.lineY(
             filteredData,
             Plot.groupX(
@@ -85,12 +85,12 @@
         ]
       });
   
-      // 4) Append the Plot chart (an <svg> element) to our container
+      // 4) Append the Plot chart (an <svg> element) to the container
       chartContainer.appendChild(chart);
     });
 </script>
 
-<!-- This <div> is where we insert the generated SVG chart -->
+<!-- This <div> is where the generated SVG chart gets inserted -->
 <div class="chart-card">
   <h2 class="chart-title">Dominant COVID-19 Variants During the Course of the Pandemic</h2>
   <div class="chart-container" bind:this={chartContainer}></div>

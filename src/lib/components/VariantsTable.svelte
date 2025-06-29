@@ -2,8 +2,8 @@
 
 <script lang="ts">
     /**
-     * We expect the parent to pass in `variantData`.
-     * So we declare it as a prop using "export let"
+     * Expects the parent to pass in `variantData`.
+     * Declares it as a prop using "export let"
      */
     export let variantData: Array<Record<string, any>> = [];
 </script>
