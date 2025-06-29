@@ -103,7 +103,7 @@ Ensure that NodeJS and Git is installed abd that your System is allowed to execu
    npm run dev
    ```
 
-4. Open your browser and navigate to [`http://localhost:3000`](http://localhost:300).
+4. Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173).
 
 ## Building
 
